@@ -34,15 +34,7 @@ npx hardhat test
 4. Deploy to Taiko testnet:
 
 ```bash
-npx hardhat ignition deploy ./ignition/modules/Donation.ts --network taiko-hekla
-```
-
-## Contract Verification
-
-After deployment, verify your contract:
-
-```bash
-npx hardhat verify --network taiko-hekla DEPLOYED_CONTRACT_ADDRESS
+npx hardhat run scripts/deploy-taiko.ts --network taiko-hekla
 ```
 
 ## Testing
