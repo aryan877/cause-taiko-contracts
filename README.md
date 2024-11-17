@@ -1,13 +1,86 @@
-# Sample Hardhat Project
+# Transparent Donation Tracker
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+A blockchain-based platform for transparent charitable donations with real-time tracking and NFT rewards.
 
-Try running some of the following tasks:
+## Features
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
+- Create and manage charitable causes
+- Track donations with milestones
+- Award NFT badges to donors
+- Calculate impact scores
+- Real-time fund tracking
+- Transparent withdrawal system
+
+## Setup
+
+1. Install dependencies:
+
+```bash
+npm install
 ```
+
+2. Create a `.env` file:
+
+```
+PRIVATE_KEY=your_private_key_here
+```
+
+3. Run tests:
+
+```bash
+npx hardhat test
+```
+
+4. Deploy to Taiko testnet:
+
+```bash
+npx hardhat ignition deploy ./ignition/modules/Donation.ts --network taiko-hekla
+```
+
+## Contract Verification
+
+After deployment, verify your contract:
+
+```bash
+npx hardhat verify --network taiko-hekla DEPLOYED_CONTRACT_ADDRESS
+```
+
+## Testing
+
+Run the test suite:
+
+```bash
+npx hardhat test
+```
+
+For gas reporting:
+
+```bash
+REPORT_GAS=true npx hardhat test
+```
+
+## Goldsky Integration
+
+The contract emits the following events for Goldsky indexing:
+
+- CauseCreated
+- DonationReceived
+- MilestoneAdded
+- MilestoneCompleted
+- BadgeEarned
+- FundsWithdrawn
+- CauseTargetReached
+- ImpactScoreUpdated
+
+## Security
+
+This contract includes:
+
+- ReentrancyGuard for all external functions
+- Ownable for administrative functions
+- Safe withdrawal pattern
+- Comprehensive event logging
+
+## License
+
+MIT
